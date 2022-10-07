@@ -98,7 +98,7 @@
                                     <p class="tour__place-header">New York</p>
                                     <p class="tour__place-time">Fri 27 Nov 2016</p>
                                     <p class="tour__place-title">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                    <button class="btn"><a href="">Buy Tickets</a></button>
+                                    <button class="btn buy-btn">Buy Tickets</button>
                                 </div>
                             </li>
 
@@ -108,7 +108,7 @@
                                     <p class="tour__place-header">New York</p>
                                     <p class="tour__place-time">Fri 27 Nov 2016</p>
                                     <p class="tour__place-title">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                    <button class="btn"><a href="">Buy Tickets</a></button>
+                                    <button class="btn buy-btn">Buy Tickets</button>
                                 </div>
                             </li>
 
@@ -118,7 +118,7 @@
                                     <p class="tour__place-header">New York</p>
                                     <p class="tour__place-time">Fri 27 Nov 2016</p>
                                     <p class="tour__place-title">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                    <button class="btn"><a href="">Buy Tickets</a></button>
+                                    <button class="btn buy-btn">Buy Tickets</button>
                                 </div>
                             </li>
                         </ul>
@@ -130,6 +130,77 @@
         <div id="footer">
 
         </div>
+
+        <div class="modal">
+            <div class="modal__container">
+                <header class="modal__header">
+                    <h2>
+                        <i class="modal__icon fa-solid fa-suitcase"></i>
+                        Tickets
+                    </h2>
+                </header>
+
+                <a class="modal__close">
+                    <i class="fa-sharp fa-solid fa-xmark"></i>
+                </a>
+
+                <div class="modal__content">
+                    <div class="modal__content-infor">
+                        <p class="modal__content-label">
+                            <i class="fa-sharp fa-solid fa-cart-plus"></i>
+                            Tickets, $15 per person
+                        </p>
+                        <input class="modal__content-input" placeholder="How many ?"></input>
+                    </div>
+                    <div class="modal__content-infor">
+                        <div class="modal__content-label">
+                            <i class="fa-solid fa-user"></i>
+                            Send To
+                        </div>
+                        <input class="modal__content-input" placeholder="Enter email"></input>
+                    </div>
+
+                    <div class="modal__content-pay">
+                        <button class="modal__content-pay-btn">
+                            PAY
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    </div>
+
+                    <footer class="modal__footer">
+                        <a class="modal__footer-link">
+                            <button class="modal__footer-btn">
+                                Close
+                                <i class="fa-sharp fa-solid fa-xmark"></i>
+                            </button>
+                        </a>
+                        <span class="modal__footer-help">Need <a href="">help?</a></span>
+                    </footer>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        const buyBtns = document.querySelectorAll('.buy-btn');
+        const modal = document.querySelector('.modal');
+        const modalContainer = document.querySelector('.modal__container')
+        const closeBtn = document.querySelector('.modal__close');
+
+        function showBuyTickets () {
+            modal.classList.add('open');
+        }
+
+        function closeBuyTickets () {
+            modal.classList.remove('open');
+        }
+
+        for(let buyBtn of buyBtns) {
+            buyBtn.addEventListener('click', showBuyTickets)
+        }
+
+        closeBtn.addEventListener('click', closeBuyTickets)
+        
+    </script>
 </body>
 </html>
