@@ -196,10 +196,14 @@
         }
 
         for(let buyBtn of buyBtns) {
-            buyBtn.addEventListener('click', showBuyTickets)
+            buyBtn.addEventListener('click', showBuyTickets);
         }
 
-        closeBtn.addEventListener('click', closeBuyTickets)
+        closeBtn.addEventListener('click', closeBuyTickets);
+        modal.addEventListener('click', closeBuyTickets);
+        modalContainer.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
         
     </script>
 </body>

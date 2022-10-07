@@ -356,6 +356,7 @@ html {
     width: 900px;
     margin: auto;
     position: relative;
+    animation: modalFadeIn ease .3s;
 }
 
 .modal__header {
@@ -464,5 +465,13 @@ html {
 }
 
 @keyframes modalFadeIn {
-    from 
+    from {
+        opacity: 0;
+        transform: translateY(-140px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
