@@ -134,7 +134,8 @@
                     <div class="contact__content">
                         <div class="contact__address">
                             <div class="contact__infor">
-                                <i class="fa-solid fa-map-location-dot"></i>                                <p>Chicago, US</p>
+                                <i class="fa-solid fa-map-location-dot"></i>                                
+                                <p>Chicago, US</p>
                             </div>
                             <div class="contact__infor">
                                 <i class="fa-solid fa-phone"></i>
@@ -231,7 +232,8 @@
         const modalContainer = document.querySelector('.modal__container')
         const closeBtn1 = document.querySelector(".close-btn");
         const closeBtn2 = document.querySelector(".close");
-        
+        let slideIndex = 0;
+        showSlides();
 
         function showBuyTickets () {
             modal.classList.add('open');
@@ -243,9 +245,14 @@
 
         function showSlides () {
             let slides = document.getElementById('slider');
-            let images = ['/assets/images/chicago.jpg', 'assets/images/la.jpg', "/assets/images/newyork.jpg"]
-            
-            slides.style.backgroundImage = `url(${images[0]})`;
+            let destination = document.getElementsByClassName('slider__heading');
+            let images = ['/assets/images/chicago.jpg', 'assets/images/la.jpg', "/assets/images/newyork.jpg"];
+            let title = ['Chicago', 'Los Angeles', 'New York'];
+            slides.style.backgroundImage = `url(${images[slideIndex]})`;
+            destination.value = title[slideIndex];
+            slideIndex++;
+            if (slideIndex >= images.length) {slideIndex = 0}
+            setTimeout(showSlides, 2000);
         }
 
 
@@ -259,7 +266,6 @@
         modalContainer.addEventListener('click', function(event) {
             event.stopPropagation();
         });
-        setInterval(console.log("1"), 2000);
         
     </script>
 </body>
