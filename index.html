@@ -37,8 +37,8 @@
 
         <div id="slider">
             <div class="slider__text">
-                <h1 class="slider__heading">Chicago</h1>
-                <p class="slider__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque cumque minima, quidem a suscipit inventore et expedita consectetur magnam fugit rem in corporis mollitia quam odio officiis magni pariatur molestias.</p>
+                <h1 class="slider__heading" id="title">Chicago</h1>
+                <p class="slider__description" id="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque cumque minima, quidem a suscipit inventore et expedita consectetur magnam fugit rem in corporis mollitia quam odio officiis magni pariatur molestias.</p>
             </div>
         </div>
 
@@ -232,7 +232,31 @@
         const modalContainer = document.querySelector('.modal__container')
         const closeBtn1 = document.querySelector(".close-btn");
         const closeBtn2 = document.querySelector(".close");
+        let slides = document.getElementById('slider');
+        let title = document.querySelector(".slider__heading");
+        let content = document.querySelector(".slider__description");
+        const mockData = [
+            {
+                id: 1,
+                image: "chicago.jpg",
+                title: "Chicago",
+                content: "Thank you, Chicago - A night we won't forget."
+            },
+            {
+                id: 2,
+                image: "la.jpg",
+                title: "Los Angeles",
+                content: "We had the best time playing at Venice Beach!"
+            },
+            {
+                id: 3,
+                image: "newyork.jpg",
+                title: "New York",
+                content: "The atmosphere in New York is lorem ipsum."
+            }
+        ]
         let slideIndex = 0;
+
         showSlides();
 
         function showBuyTickets () {
@@ -244,14 +268,11 @@
         }
 
         function showSlides () {
-            let slides = document.getElementById('slider');
-            let destination = document.getElementsByClassName('slider__heading');
-            let images = ['/assets/images/chicago.jpg', 'assets/images/la.jpg', "/assets/images/newyork.jpg"];
-            let title = ['Chicago', 'Los Angeles', 'New York'];
-            slides.style.backgroundImage = `url(${images[slideIndex]})`;
-            destination.value = title[slideIndex];
+            slides.style.backgroundImage = `url(/assets/images/${mockData[slideIndex].image})`;
+            title.innerHTML = mockData[slideIndex].title;
+            content.innerHTML = mockData[slideIndex].content;
             slideIndex++;
-            if (slideIndex >= images.length) {slideIndex = 0}
+            if (slideIndex >= mockData.length) {slideIndex = 0}
             setTimeout(showSlides, 2000);
         }
 
