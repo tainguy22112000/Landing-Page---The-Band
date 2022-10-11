@@ -12,6 +12,13 @@ html {
     line-height: 2.5rem;
     font-size: 62.5%;
     font-family: "Roboto", sans-serif;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
 }
 
 /* 
@@ -126,6 +133,8 @@ html {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    animation: fade ease-in 1.5s;
+    will-change: contents;
 }
 
 #slider .slider__text {
@@ -150,8 +159,6 @@ html {
     margin: 15px 0;
     line-height: 1.4rem;
 }
-
-
 
 /* ------------------------------------- */
 
@@ -567,6 +574,18 @@ html {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+        background-position: 0 0;
+    }
+
+    to {
+        opacity: 1;
+        background-position: 100% 0;
     }
 }
 
